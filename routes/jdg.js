@@ -1,13 +1,16 @@
 //env variables
 
-var DG_HOSTNAME_HTTP= process.env.DG_HOSTNAME_HTTP
+var DG_HOSTNAME_HTTP= process.env.DG_HOSTNAME_HTTP;
+var DG_PORT_HTTP= process.env.DG_PORT_HTTP;
+var DATAGRID_APP_DG_SERVICE_HOST=process.env.DATAGRID_APP_DG_SERVICE_HOST;
+var DATAGRID_APP_DG_SERVICE_PORT=process.env.DATAGRID_APP_DG_SERVICE_PORT;
 
 	  var jdgOptions={
-			  host: DG_HOSTNAME_HTTP,
+			  host: DATAGRID_APP_DG_SERVICE_HOST,
 			    //path: "/rest/teams/test",
 			  path: "/rest/demoCache/test",
 			    method: "PUT",
-			    port: "8080",
+			    port: DATAGRID_APP_DG_SERVICE_PORT,
 			    data: "1234",			    
 			    headers: {
 			    	'Content-type':'text/plain'
