@@ -1,8 +1,9 @@
-/*
- * GET index page.
- */
+//env variables
+
+var DG_HOSTNAME_HTTP= process.env.DG_HOSTNAME_HTTP
+
 	  var jdgOptions={
-			  host: "localhost",
+			  host: DG_HOSTNAME_HTTP,
 			    //path: "/rest/teams/test",
 			  path: "/rest/demoCache/test",
 			    method: "PUT",
