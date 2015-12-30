@@ -24,7 +24,7 @@ exports.put = function(req, res) {
 	console.log('received put request for  '+req.body.cacheKey+' : '+req.body.cacheValue);
 	var cacheName=req.body.cacheName || 'default';
 	console.log('cacheName :'+cacheName);
-	jdgOptions.host="localhost";
+	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName+"/"+req.body.cacheKey;
 	jdgOptions.method='PUT';
 	jdgOptions.data=req.body.cacheValue;
@@ -41,7 +41,7 @@ exports.get = function(req, res) {
 	console.log('received get request for  '+req.query.cacheKey);
 	var cacheName=req.body.cacheName || 'default';
 	console.log('cacheName :'+cacheName);
-	jdgOptions.host="localhost";
+	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName+"/"+req.query.cacheKey;
 	jdgOptions.method='GET';
 	jdgOptions.data=null;
@@ -56,7 +56,7 @@ exports.list = function(req, res) {
 	console.log('received list request');
 	var cacheName=req.body.cacheName || 'default';
 	console.log('cacheName :'+cacheName);
-	jdgOptions.host="localhost";
+	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName;
 	jdgOptions.method='GET';
 	jdgOptions.data=null;
