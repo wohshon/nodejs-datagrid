@@ -15,7 +15,7 @@ As a cluster-admin, on the CLI, run the following command to install template:
 
 ## Usage
 ### Web Console
-Template will be installed under the _'Instant Apps'_ , (You may need to click on the 'see all' link to view the template) 
+Template will be installed under the _'Instant Apps'_  as **nodejs-datagrid65-example**, (You may need to search for it or click on the 'see all' link to view the template) 
 
 ### CLI
 As a project adminstrator, run this 
