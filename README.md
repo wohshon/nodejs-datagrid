@@ -28,9 +28,9 @@ As a project adminstrator, run this
   To test clustering feature of DG nodes by increasing the number of replicas, you need to ensure the following commands are run by the project admin before attempting to scale up the nodes
   
   
-  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)'
+  `oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)`
   
-  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):eap-service-account -n $(oc project -q)'
+  `oc policy add-role-to-user view system:serviceaccount:$(oc project -q):eap-service-account -n $(oc project -q)`
 
 ### Parameters
 
