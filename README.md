@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 * Openshift 3.1
-* Red Hat JBoss xPaaS datagrid 6.5 images installed  [instructions] (https://docs.openshift.com/enterprise/3.1/using_images/xpaas_images/data_grid.html)
+* Red Hat JBoss xPaaS datagrid 6.5 images installed : [instructions] (https://docs.openshift.com/enterprise/3.1/using_images/xpaas_images/data_grid.html)
  
 ## Installation of template
 The template of this demo is under openshiftv3-templates
@@ -31,15 +31,15 @@ Some of the parameters used in the template, the rest are self-explanatory
 ... Name of application, default to demo
 * SOURCE_REPOSITORY_URL
 
-... git repo of nodejs sample app
+  git repo of nodejs sample app
 * SOURCE_REPOSITORY_REF
 
-... branch name, not required for demo
+  branch name, not required for demo
 * CONTEXT_DIR
 
-...not required for demo
+  not required for demo
 *  APPLICATION_DOMAIN
 
-... application domain
+  application domain for node js app
 *  DG_HOSTNAME_HTTP
-... application domain for jdg nodes. for external text via rest api
+  application domain for jdg nodes. for external text via rest api
