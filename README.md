@@ -22,6 +22,14 @@ As a project adminstrator, run this
 
 `oc new-app nodejs-datagrid65-example`
 
+ ### Clustered DG nodes
+  To test of the clustering of DG nodes by increasing the number of replicas, you need to ensure the following commands are run by the project admin before attempting to scale up the nodes
+  
+  
+  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)'
+  
+  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):eap-service-account -n $(oc project -q)'
+
 ### Parameters
 
 Some of the parameters used in the template, the rest are self-explanatory
@@ -42,15 +50,10 @@ Some of the parameters used in the template, the rest are self-explanatory
 
   application domain for node js app
 *  DG_HOSTNAME_HTTP
+
   application domain for jdg nodes. for external text via rest api
 
-  ### Clustered DG nodes
-  To test of the clustering of DG nodes by increasing the number of replicas, you need to ensure the following commands are run by the project admin before attempting to scale up the nodes
-  
-  
-  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)'
-  
-  'oc policy add-role-to-user view system:serviceaccount:$(oc project -q):eap-service-account -n $(oc project -q)'
+ 
   
   
   
