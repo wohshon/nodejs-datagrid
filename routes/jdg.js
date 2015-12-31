@@ -23,7 +23,10 @@ var DG_SERVICE_PORT=process.env[APPLICATION_NAME+'_DG_SERVICE_PORT'];
 			   };
 exports.index = function(req, res) {
 	res.sendfile("views/jdg.html");
+};
 
+exports.about = function(req, res) {
+	res.sendfile("views/about.html");
 };
 
 
@@ -101,6 +104,7 @@ var callRest=function (options, res) {
 	 
 	 restReq.on('error', function(e) {
 		  console.log('problem with request: ' + e.message);
+		  res.send('there is a problem with this request: ' + e.message);
 		});
 
 		// write data to request body for PUT usecases

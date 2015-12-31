@@ -33,6 +33,7 @@ app.get('/', jdg.index);
 app.post('/putRequest', jdg.put);
 app.get('/getRequest', jdg.get);
 app.get('/listRequest', jdg.list);
+app.get('/about', jdg.about);
 
 
 http.createServer(app).listen(app.get('port'), function(){
