@@ -2,6 +2,8 @@
 
 # nodejs-jdg
 
+![](https://drive.google.com/file/d/0B66-JS_D0VSGcy05M3dVYlItZWc/view?usp=sharing)
+
 ## Pre-requisites
 * Openshift 3.1
 * Red Hat JBoss xPaaS datagrid 6.5 images installed : [instructions] (https://docs.openshift.com/enterprise/3.1/using_images/xpaas_images/data_grid.html)
