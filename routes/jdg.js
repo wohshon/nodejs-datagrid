@@ -1,32 +1,36 @@
+var formatVarName=function(str) {
+	var s=str.replace(/-/g,"_").toUpperCase();
+	return s;
+};
 //env variables
-
-var DG_HOSTNAME_HTTP= process.env.DG_HOSTNAME_HTTP;
-var DG_PORT_HTTP= process.env.DG_PORT_HTTP;
-var DATAGRID_APP_DG_SERVICE_HOST=process.env.DATAGRID_APP_DG_SERVICE_HOST;
-var DATAGRID_APP_DG_SERVICE_PORT=process.env.DATAGRID_APP_DG_SERVICE_PORT;
-//var DATAGRID_APP_DG_SERVICE_HOST=process.env.EXTERNAL_DG_SERVICE_SERVICE_HOST;
-//var DATAGRID_APP_DG_SERVICE_PORT=process.env.EXTERNAL_DG_SERVICE_SERVICE_PORT;
+console.log(process.env.APPLICATION_NAME);
+var APPLICATION_NAME=formatVarName(process.env.APPLICATION_NAME);
+var defaultCache=process.env.DEFAULT_CACHE || 'default';
+//var DG_SERVICE_HOST=process.env.DATAGRID_APP_DG_SERVICE_HOST;
+//var DG_SERVICE_PORT=process.env.DATAGRID_APP_DG_SERVICE_PORT;
+var DG_SERVICE_HOST=process.env[APPLICATION_NAME+'_DG_SERVICE_HOST'];
+var DG_SERVICE_PORT=process.env[APPLICATION_NAME+'_DG_SERVICE_PORT'];
 	  var jdgOptions={
-			  host: DATAGRID_APP_DG_SERVICE_HOST,
+			  host: DG_SERVICE_HOST,
 			    //path: "/rest/teams/test",
 			  path: "/rest/demoCache/test",
 			    method: "PUT",
-			    port: DATAGRID_APP_DG_SERVICE_PORT,
+			    port: DG_SERVICE_PORT,
 			    data: "1234",			    
 			    headers: {
 			    	'Content-type':'text/plain'
 			    	}
 			   };
 exports.index = function(req, res) {
-	// res.render('index', { title: 'Express' });
 	res.sendfile("views/jdg.html");
 
 };
 
+
 exports.put = function(req, res) {
 	//console.log('received put request for '+Object.keys(req.body));
 	console.log('received put request for  '+req.body.cacheKey+' : '+req.body.cacheValue);
-	var cacheName=req.body.cacheName || 'default';
+	var cacheName=req.body.cacheName || defaultCache;
 	console.log('cacheName :'+cacheName);
 	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName+"/"+req.body.cacheKey;
@@ -43,7 +47,7 @@ exports.put = function(req, res) {
 exports.get = function(req, res) {
 //	console.log('received get request for '+Object.keys(req));
 	console.log('received get request for  '+req.query.cacheKey);
-	var cacheName=req.body.cacheName || 'default';
+	var cacheName=req.body.cacheName ||defaultCache;
 	console.log('cacheName :'+cacheName);
 	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName+"/"+req.query.cacheKey;
@@ -58,7 +62,7 @@ exports.get = function(req, res) {
 exports.list = function(req, res) {
 //	console.log('received get request for '+Object.keys(req));
 	console.log('received list request');
-	var cacheName=req.body.cacheName || 'default';
+	var cacheName=req.body.cacheName || defaultCache;
 	console.log('cacheName :'+cacheName);
 	//jdgOptions.host="localhost";
 	jdgOptions.path="/rest/"+cacheName;
@@ -99,7 +103,7 @@ var callRest=function (options, res) {
 		  console.log('problem with request: ' + e.message);
 		});
 
-		// write data to request body
+		// write data to request body for PUT usecases
  	if (options.method=='PUT') {	 
 	 restReq.write(options.data);
  	}
