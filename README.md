@@ -2,7 +2,7 @@
 
 # nodejs-jdg
 
-![](https://drive.google.com/file/d/0B66-JS_D0VSGcy05M3dVYlItZWc/view?usp=sharing)
+![](http://gdurl.com/BMA9)
 
 ## Pre-requisites
 * Openshift 3.1
